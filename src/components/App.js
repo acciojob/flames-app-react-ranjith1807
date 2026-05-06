@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './../styles/App.css'
-function FlamesApp() {
+import './../styles/App.css';
+
+function App() {
   const [name1, setName1] = useState('');
   const [name2, setName2] = useState('');
   const [result, setResult] = useState('');
@@ -50,7 +51,7 @@ function FlamesApp() {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+    <div id="main" style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <input
         type="text"
         data-testid="input1"
@@ -88,12 +89,10 @@ function FlamesApp() {
         Clear
       </button>
 
-      {/* Conditionally render the h3 only if there is a result */}
-      {result && (
-        <h3 data-testid="answer">{result}</h3>
-      )}
+      {/* Renders unconditionally so Cypress finds it immediately */}
+      <h3 data-testid="answer">{result}</h3>
     </div>
   );
 }
 
-export default FlamesApp;
+export default App;
